@@ -51,7 +51,7 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
                         fitness.MaxHeartRate = maxHeartRate;
 
                         Console.WriteLine("Press Any Key...");
-                        Console.Read();
+                        Console.ReadKey();
                         menuIndex = 0;
                         break;
                     #endregion
@@ -89,7 +89,7 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
                         Console.WriteLine();
 
                         Console.WriteLine("Press Any Key...");
-                        Console.Read();
+                        Console.ReadKey();
                         menuIndex = 0;
                         break;
                         #endregion 
