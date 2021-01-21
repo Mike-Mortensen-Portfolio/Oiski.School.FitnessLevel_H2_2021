@@ -253,6 +253,142 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
             #endregion
 
             #region Result Menu
+
+            #region Header
+            ColorableLabel resultHeader = new ColorableLabel("Oiski's Results", textColor, borderColor, _attachToEngine: false);
+            resultHeader.Position = new Vector2(Vector2.CenterX(resultHeader.Size.x), 5);
+
+            resultMenu.Controls.AddControl(resultHeader);
+            #endregion
+
+            #region Weight
+            ColorableLabel weightResultLabel = new ColorableLabel("Weight (kg)", textColor, borderColor, _attachToEngine: false);
+            weightResultLabel.Position = new Vector2(10, resultHeader.Position.y + 5);
+
+            resultMenu.Controls.AddControl(weightResultLabel);
+
+            ColorableLabel weightResultText = new ColorableLabel(fitness.Weight.ToString(), new RenderColor(ConsoleColor.Green, ConsoleColor.Black), borderColor, _attachToEngine: false);
+            weightResultText.Position = new Vector2(weightResultLabel.Position.x + weightResultLabel.Size.x - 1, weightResultLabel.Position.y);
+
+            weightResultText.OnUpdate += (c) =>
+            {
+                weightResultText.Text = fitness.Weight.ToString();
+            };
+
+            resultMenu.Controls.AddControl(weightResultText);
+            #endregion
+
+            #region Resting Heart Rate
+            ColorableLabel restingHeartRateResultLabel = new ColorableLabel("R-Heart Rate (BPM)", textColor, borderColor, _attachToEngine: false);
+            int positionX = weightResultLabel.Position.x + weightResultLabel.Size.x + weightResultText.Size.x + 2;
+            restingHeartRateResultLabel.Position = new Vector2(positionX, weightResultLabel.Position.y);
+
+            resultMenu.Controls.AddControl(restingHeartRateResultLabel);
+
+            ColorableLabel restingHeartRateResultText = new ColorableLabel(fitness.RestingHeartRate.ToString(), new RenderColor(ConsoleColor.Green, ConsoleColor.Black), borderColor, _attachToEngine: false);
+            restingHeartRateResultText.Position = new Vector2(restingHeartRateResultLabel.Position.x + restingHeartRateResultLabel.Size.x - 1, restingHeartRateResultLabel.Position.y);
+
+            restingHeartRateResultText.OnUpdate += (c) =>
+            {
+                restingHeartRateResultText.Text = fitness.RestingHeartRate.ToString();
+            };
+
+            resultMenu.Controls.AddControl(restingHeartRateResultText);
+            #endregion
+
+            #region Max Heart Rate
+            ColorableLabel maxHeartRateResultLabel = new ColorableLabel("M-Heart Rate (BPM)", textColor, borderColor, _attachToEngine: false);
+            maxHeartRateResultLabel.Position = new Vector2(weightResultLabel.Position.x, weightResultLabel.Position.y + 3);
+
+            resultMenu.Controls.AddControl(maxHeartRateResultLabel);
+
+            ColorableLabel maxHeartRateResultText = new ColorableLabel(fitness.MaxHeartRate.ToString(), new RenderColor(ConsoleColor.Green, ConsoleColor.Black), borderColor, _attachToEngine: false);
+            maxHeartRateResultText.Position = new Vector2(maxHeartRateResultLabel.Position.x + maxHeartRateResultLabel.Size.x - 1, maxHeartRateResultLabel.Position.y);
+
+            maxHeartRateResultText.OnUpdate += (c) =>
+            {
+                maxHeartRateResultText.Text = fitness.MaxHeartRate.ToString();
+            };
+
+            resultMenu.Controls.AddControl(maxHeartRateResultText);
+            #endregion
+
+            #region Fitness Level
+            ColorableLabel fitnessLabel = new ColorableLabel("Fitness Level", textColor, borderColor, _attachToEngine: false);
+            fitnessLabel.Position = new Vector2(weightResultLabel.Position.x, restingHeartRateLabel.Position.y + 2);
+
+            resultMenu.Controls.AddControl(fitnessLabel);
+
+            ColorableLabel fitnessLevelText = new ColorableLabel("Error", new RenderColor(ConsoleColor.Red, ConsoleColor.Black), borderColor, _attachToEngine: false);
+            fitnessLevelText.Position = new Vector2(fitnessLabel.Position.x + fitnessLabel.Size.x - 1, fitnessLabel.Position.y);
+
+            fitnessLevelText.OnUpdate += (c) =>
+            {
+                try
+                {
+                    fitnessLevelText.TextColor = new RenderColor(ConsoleColor.Green, ConsoleColor.Black);
+                    fitnessLevelText.Text = fitness.GetFitnessLevel().ToString();
+                }
+                catch ( DivideByZeroException )
+                {
+                    fitnessLevelText.TextColor = new RenderColor(ConsoleColor.Red, ConsoleColor.Black);
+                    fitnessLevelText.Text = "Error";
+                }
+            };
+
+            resultMenu.Controls.AddControl(fitnessLevelText);
+            #endregion
+
+            #region VO2 Max
+            ColorableLabel vO2Label = new ColorableLabel("VO2 Max Score", textColor, borderColor, _attachToEngine: false);
+            vO2Label.Position = new Vector2(weightResultLabel.Position.x, fitnessLabel.Position.y + 2);
+
+            resultMenu.Controls.AddControl(vO2Label);
+
+            ColorableLabel vO2Text = new ColorableLabel("Error", new RenderColor(ConsoleColor.Red, ConsoleColor.Black), borderColor, _attachToEngine: false);
+            vO2Text.Position = new Vector2(vO2Label.Position.x + vO2Label.Size.x - 1, vO2Label.Position.y);
+
+            vO2Text.OnUpdate += (c) =>
+            {
+                try
+                {
+                    vO2Text.TextColor = new RenderColor(ConsoleColor.Green, ConsoleColor.Black);
+                    vO2Text.Text = fitness.GetFitnessLevel().ToString();
+                }
+                catch ( DivideByZeroException )
+                {
+                    vO2Text.TextColor = new RenderColor(ConsoleColor.Red, ConsoleColor.Black);
+                    vO2Text.Text = "Error";
+                }
+            };
+
+            resultMenu.Controls.AddControl(vO2Text);
+            #endregion
+
+            #region Back Button
+            ColorableOption resultMenuBackButton = new ColorableOption("Back ", textColor, borderColor, _attachToEngine: false)
+            {
+                SelectedIndex = Vector2.Zero
+            };
+            resultMenuBackButton.Position = new Vector2(Vector2.CenterX(resultMenuBackButton.Size.x), vO2Label.Position.y + 4);
+
+            resultMenuBackButton.OnSelect += (s) =>
+            {
+                #region Hide Data Menu
+                OiskiEngine.Input.ResetInput();
+                OiskiEngine.Input.ResetSlection();
+                s.BorderStyle(BorderArea.Horizontal, '-');
+
+                resultMenu.Show(false);
+                #endregion
+
+                mainMenu.Controls.GetSelectableControls[0].BorderStyle(BorderArea.Horizontal, '~');
+                mainMenu.Show();
+            };
+
+            resultMenu.Controls.AddControl(resultMenuBackButton);
+            #endregion
+
             #endregion
         }
     }
