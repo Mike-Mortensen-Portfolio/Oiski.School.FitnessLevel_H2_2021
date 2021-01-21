@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Oiski.School.VO2Number_H2_2021.Application
+namespace Oiski.School.FitnessLevel_H2_2021.Application
 {
     class Program
     {
