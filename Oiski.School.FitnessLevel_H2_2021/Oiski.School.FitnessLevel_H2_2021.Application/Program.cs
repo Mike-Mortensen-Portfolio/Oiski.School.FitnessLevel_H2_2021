@@ -54,7 +54,22 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
                         Console.Read();
                         menuIndex = 0;
                         break;
-                        #endregion
+                    #endregion
+
+                    #region Result Menu
+                    case 2:
+                        Console.WriteLine($"Weight: {fitness.Weight}kg");
+                        Console.WriteLine($"Resting Heart Rate: {fitness.RestingHeartRate} BPM");
+                        Console.WriteLine($"Max Heart Rate: {fitness.MaxHeartRate} BPM");
+                        Console.WriteLine($"Fitness Level: {fitness.GetFitnessLevel()} ml/kg/min");
+                        Console.WriteLine($"VO2 Max Score: {fitness.GetVO2Max()} l/ml");
+                        Console.WriteLine();
+
+                        Console.WriteLine("Press Any Key...");
+                        Console.Read();
+                        menuIndex = 0;
+                        break;
+                        #endregion 
                 }
             } while ( true );
         }
