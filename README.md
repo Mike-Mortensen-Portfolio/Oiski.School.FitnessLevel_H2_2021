@@ -44,6 +44,8 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
   - Resolved an issue where the program wouldn't proceed on _Any Key_ as described
 - [v1.0.3 - Hotfix](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v1.0.3)
   - Fixed a mathematical issue
+- [v2.0.0](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v2.0.0)
+  - The implementation of an advanced Menu System that utilizes the extend of the [OiskiEngine](https://github.com/ZhakalenDk/Oiski.ConsoleTech.Engine) to handle rendering and an user interactive interface
 
 ## Oiski.School Namespace Collection
 1. [Oiski.School.Library_h1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
