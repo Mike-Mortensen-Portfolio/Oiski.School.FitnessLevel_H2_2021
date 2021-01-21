@@ -28,7 +28,7 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
         /// <returns>An <see langword="int"/> value rounded to the nearest integer that represents a persons <strong>Fitness Level</strong></returns>
         public int GetFitnessLevel ()
         {
-            return ( int ) Math.Round(( MaxHeartRate / RestingHeartRate ) * 15.3);
+            return ( int ) Math.Round(( MaxHeartRate / RestingHeartRate ) * 15.3M);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
         /// <returns>A <see langword="decimal"/> value truncated to 1 decimal point that represents a persons <strong>VO2 Max Score</strong></returns>
         public decimal GetVO2Max ()
         {
-            return Math.Truncate(( GetFitnessLevel() * Weight ) / 1000);
+            return Math.Truncate(( GetFitnessLevel() * Weight ) / 1000M);
         }
     }
 }
