@@ -21,5 +21,14 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
         /// The maximum heart rate, while exercising, in Beats Pr. Minute (BPM)
         /// </summary>
         public int MaxHeartRate { get; set; }
+
+        /// <summary>
+        /// Calculates the Fitness Level of a person
+        /// </summary>
+        /// <returns>The Fitness Level for a person based on his/her <see cref="MaxHeartRate"/> and <see cref="RestingHeartRate"/></returns>
+        public int GetFitnessLevel ()
+        {
+            return ( int ) Math.Round(( MaxHeartRate / RestingHeartRate ) * 15.3);
+        }
     }
 }
