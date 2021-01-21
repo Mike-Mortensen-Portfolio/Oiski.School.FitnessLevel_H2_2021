@@ -36,6 +36,12 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
   - Intergrated Fitness Level Calculations
 - [v0.3.0](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v0.3.0)
   - Intergrated VO2 Max Score Formula into the `FitnessCalc` Class
+- [v1.0.0](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v1.0.0)
+  - Implementation of Basic Menu that can retrieve and display dat for a user through an interactive UI
+- [v1.0.1 - Hotfix](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v1.0.1)
+  - Fixed a DivideByZeroException when entering the Result Menu
+- [v1.0.2 - Hotfix](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v1.0.2)
+  - Resolved an issue where the program wouldn't proceed on _Any Key_ as described
 
 ## Oiski.School Namespace Collection
 1. [Oiski.School.Library_h1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
