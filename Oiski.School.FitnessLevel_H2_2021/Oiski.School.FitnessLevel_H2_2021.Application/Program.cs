@@ -50,11 +50,13 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
                 #region Hide Main Menu
                 OiskiEngine.Input.ResetInput();
                 OiskiEngine.Input.ResetSlection();
+                s.BorderStyle(BorderArea.Horizontal, '-');
 
                 mainMenu.Show(false);
                 #endregion
 
-                //  Show Data Menu
+                dataMenu.Controls.GetSelectableControls[0].BorderStyle(BorderArea.Horizontal, '~');
+                dataMenu.Show();
             };
 
             mainMenu.Controls.AddControl(toDataMenu);
@@ -72,11 +74,13 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
                 #region Hide Main Menu
                 OiskiEngine.Input.ResetInput();
                 OiskiEngine.Input.ResetSlection();
+                s.BorderStyle(BorderArea.Horizontal, '-');
 
                 mainMenu.Show(false);
                 #endregion
 
-                //  Show Result Menu
+                resultMenu.Controls.GetSelectableControls[0].BorderStyle(BorderArea.Horizontal, '~');
+                resultMenu.Show();
             };
 
             mainMenu.Controls.AddControl(toResultMenu);
@@ -101,6 +105,151 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
             #endregion
 
             #region Data Menu
+
+            #region Header
+            ColorableLabel dataHeader = new ColorableLabel("Oiski's Data", textColor, borderColor, _attachToEngine: false);
+            dataHeader.Position = new Vector2(Vector2.CenterX(dataHeader.Size.x), 5);
+
+            dataMenu.Controls.AddControl(dataHeader);
+            #endregion
+
+            #region Weight
+            decimal weight = 0;
+
+            ColorableLabel weightLabel = new ColorableLabel("Weight", textColor, borderColor, _attachToEngine: false);
+            weightLabel.Position = new Vector2(15, dataHeader.Position.y + 6);
+
+            dataMenu.Controls.AddControl(weightLabel);
+
+            ColorableTextField weightText = new ColorableTextField("Type Weight...", new RenderColor(ConsoleColor.Green, ConsoleColor.Black), borderColor, _attachToEngine: false)
+            {
+                SelectedIndex = Vector2.Zero,
+                ResetAfterFirstWrite = false,
+                EraseTextOnSelect = true
+            };
+            weightText.Position = new Vector2(weightLabel.Position.x + weightLabel.Size.x - 1, weightLabel.Position.y);
+            weightText.BorderStyle(BorderArea.Horizontal, '~');
+
+            weightText.OnSelect += (s) =>
+            {
+                if ( !OiskiEngine.Input.CanWrite )
+                {
+                    if ( !decimal.TryParse(weightText.Text, out weight) )
+                    {
+                        weightText.TextColor = new RenderColor(ConsoleColor.Red, ConsoleColor.Black);
+                        weightText.Text = "Invalid Input";
+                    }
+
+                }
+                else
+                {
+                    weightText.TextColor = new RenderColor(ConsoleColor.Green, ConsoleColor.Black);
+                }
+            };
+
+            dataMenu.Controls.AddControl(weightText);
+            #endregion
+
+            #region Resting Heart Rate
+            int restingHeartRate = 0;
+
+            ColorableLabel restingHeartRateLabel = new ColorableLabel("R-Heart Rate (BPM)", textColor, borderColor, _attachToEngine: false);
+            restingHeartRateLabel.Position = new Vector2(15, weightLabel.Position.y + 3);
+
+            dataMenu.Controls.AddControl(restingHeartRateLabel);
+
+            ColorableTextField restingHeartRateText = new ColorableTextField("Type Rate...", new RenderColor(ConsoleColor.Green, ConsoleColor.Black), borderColor, _attachToEngine: false)
+            {
+                SelectedIndex = new Vector2(0, 1),
+                ResetAfterFirstWrite = false,
+                EraseTextOnSelect = true
+            };
+            restingHeartRateText.Position = new Vector2(restingHeartRateLabel.Position.x + restingHeartRateLabel.Size.x - 1, restingHeartRateLabel.Position.y);
+
+            restingHeartRateText.OnSelect += (s) =>
+            {
+                if ( !OiskiEngine.Input.CanWrite )
+                {
+                    if ( !int.TryParse(restingHeartRateText.Text, out restingHeartRate) )
+                    {
+                        restingHeartRateText.TextColor = new RenderColor(ConsoleColor.Red, ConsoleColor.Black);
+                        restingHeartRateText.Text = "Invalid Input";
+                    }
+
+                }
+                else
+                {
+                    restingHeartRateText.TextColor = new RenderColor(ConsoleColor.Green, ConsoleColor.Black);
+                }
+            };
+
+            dataMenu.Controls.AddControl(restingHeartRateText);
+            #endregion
+
+            #region Max Heart Rate
+            int maxHeartRate = 0;
+
+            ColorableLabel maxHeartRateLabel = new ColorableLabel("M-Heart Rate (BPM)", textColor, borderColor, _attachToEngine: false);
+            maxHeartRateLabel.Position = new Vector2(15, restingHeartRateLabel.Position.y + 3);
+
+            dataMenu.Controls.AddControl(maxHeartRateLabel);
+
+            ColorableTextField maxHeartRateText = new ColorableTextField("Type Rate...", new RenderColor(ConsoleColor.Green, ConsoleColor.Black), borderColor, _attachToEngine: false)
+            {
+                SelectedIndex = new Vector2(0, 2),
+                ResetAfterFirstWrite = false,
+                EraseTextOnSelect = true
+            };
+            maxHeartRateText.Position = new Vector2(maxHeartRateLabel.Position.x + maxHeartRateLabel.Size.x - 1, maxHeartRateLabel.Position.y);
+
+            maxHeartRateText.OnSelect += (s) =>
+            {
+                if ( !OiskiEngine.Input.CanWrite )
+                {
+                    if ( !int.TryParse(maxHeartRateText.Text, out maxHeartRate) )
+                    {
+                        maxHeartRateText.TextColor = new RenderColor(ConsoleColor.Red, ConsoleColor.Black);
+                        maxHeartRateText.Text = "Invalid Input";
+                    }
+
+                }
+                else
+                {
+                    maxHeartRateText.TextColor = new RenderColor(ConsoleColor.Green, ConsoleColor.Black);
+                }
+            };
+
+            dataMenu.Controls.AddControl(maxHeartRateText);
+            #endregion
+
+            #region Back Button
+            ColorableOption dataMenuBackButton = new ColorableOption("Back ", textColor, borderColor, _attachToEngine: false)
+            {
+                SelectedIndex = new Vector2(0, 3)
+            };
+            dataMenuBackButton.Position = new Vector2(Vector2.CenterX(dataMenuBackButton.Size.x), maxHeartRateLabel.Position.y + 3);
+
+            dataMenuBackButton.OnSelect += (s) =>
+            {
+                #region Hide Data Menu
+                OiskiEngine.Input.ResetInput();
+                OiskiEngine.Input.ResetSlection();
+                s.BorderStyle(BorderArea.Horizontal, '-');
+
+                dataMenu.Show(false);
+                #endregion
+
+                fitness.Weight = weight;
+                fitness.RestingHeartRate = restingHeartRate;
+                fitness.MaxHeartRate = maxHeartRate;
+
+                mainMenu.Controls.GetSelectableControls[0].BorderStyle(BorderArea.Horizontal, '~');
+                mainMenu.Show();
+            };
+
+            dataMenu.Controls.AddControl(dataMenuBackButton);
+            #endregion
+
             #endregion
 
             #region Result Menu
