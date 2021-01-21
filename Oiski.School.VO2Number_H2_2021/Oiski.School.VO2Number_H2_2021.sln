@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oiski.School.VO2Number_H2_2021.Application", "Oiski.School.VO2Number_H2_2021.Application\Oiski.School.VO2Number_H2_2021.Application.csproj", "{95C9D233-3A87-4CA3-BFBD-8F57358B100C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95C9D233-3A87-4CA3-BFBD-8F57358B100C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C9D233-3A87-4CA3-BFBD-8F57358B100C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C9D233-3A87-4CA3-BFBD-8F57358B100C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C9D233-3A87-4CA3-BFBD-8F57358B100C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B81BF0B-38D3-4347-B9C1-8CF300C0773D}
+	EndGlobalSection
+EndGlobal
