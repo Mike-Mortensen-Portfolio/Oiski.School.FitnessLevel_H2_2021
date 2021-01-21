@@ -30,7 +30,12 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
 >**Full Path:** _Oiski/v1/1.0.0-Interface_MainMenu__
 
 ### Change Log
-No Changes Yet...
+- [v0.1.0](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v0.1.0)
+  - Implemented a basic Fitness Level Class
+- [v0.2.0](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v0.2.0)
+  - Intergrated Fitness Level Calculations
+- [v0.3.0](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v0.3.0)
+  - Intergrated VO2 Max Score Formula into the `FitnessCalc` Class
 
 ## Oiski.School Namespace Collection
 1. [Oiski.School.Library_h1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
