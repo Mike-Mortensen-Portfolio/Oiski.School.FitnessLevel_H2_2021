@@ -42,6 +42,8 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
   - Fixed a DivideByZeroException when entering the Result Menu
 - [v1.0.2 - Hotfix](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v1.0.2)
   - Resolved an issue where the program wouldn't proceed on _Any Key_ as described
+- [v1.0.2 - Hotfix](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v1.0.3)
+  - Fixed a mathematical issue
 
 ## Oiski.School Namespace Collection
 1. [Oiski.School.Library_h1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
