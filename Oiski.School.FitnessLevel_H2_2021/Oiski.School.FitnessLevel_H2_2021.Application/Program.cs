@@ -6,9 +6,11 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
     {
         static void Main (string[] args)
         {
+            FitnessCalc fitness = new FitnessCalc();
             int menuIndex = 0;
             do
             {
+                Console.Clear();
                 switch ( menuIndex )
                 {
                     #region Main Menu
@@ -20,12 +22,38 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
                             Console.WriteLine("2) Results");
                         } while ( !int.TryParse(Console.ReadLine(), out menuIndex) && menuIndex > 0 && menuIndex < 3 );
                         break;
-                        #endregion
+                    #endregion
 
-                        #region Data Menu
-                        #endregion
+                    #region Data Menu
+                    case 1:
 
-                        #region Result menu
+                        decimal weight;
+                        int restingHeartRate;
+                        int maxHeartRate;
+
+                        do
+                        {
+                            Console.Write("Enter Weight (kg): ");
+                        } while ( !decimal.TryParse(Console.ReadLine(), out weight) );
+
+                        do
+                        {
+                            Console.Write("Enter Resting Heart Rate (BPM): ");
+                        } while ( !int.TryParse(Console.ReadLine(), out restingHeartRate) );
+
+                        do
+                        {
+                            Console.Write("Enter Max Heart Rate (BPM): ");
+                        } while ( !int.TryParse(Console.ReadLine(), out maxHeartRate) );
+
+                        fitness.Weight = weight;
+                        fitness.RestingHeartRate = restingHeartRate;
+                        fitness.MaxHeartRate = maxHeartRate;
+
+                        Console.WriteLine("Press Any Key...");
+                        Console.Read();
+                        menuIndex = 0;
+                        break;
                         #endregion
                 }
             } while ( true );
