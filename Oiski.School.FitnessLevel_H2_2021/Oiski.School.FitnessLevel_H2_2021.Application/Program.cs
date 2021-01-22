@@ -353,7 +353,7 @@ namespace Oiski.School.FitnessLevel_H2_2021.Application
                 try
                 {
                     vO2Text.TextColor = new RenderColor(ConsoleColor.Green, ConsoleColor.Black);
-                    vO2Text.Text = fitness.GetFitnessLevel().ToString();
+                    vO2Text.Text = $"{fitness.GetVO2Max():0.0}";
                 }
                 catch ( DivideByZeroException )
                 {
