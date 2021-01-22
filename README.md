@@ -46,6 +46,8 @@ The syntax for the structure of folders must be presented as: [DeveloperName]/[V
   - Fixed a mathematical issue
 - [v2.0.0](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v2.0.0)
   - The implementation of an advanced Menu System that utilizes the extend of the [OiskiEngine](https://github.com/ZhakalenDk/Oiski.ConsoleTech.Engine) to handle rendering and an user interactive interface
+- [v2.0.1 - Hotfix](https://github.com/ZhakalenDk/Oiski.School.FitnessLevel_H2_2021/releases/tag/v2.0.1)
+  - Fixed VO2 Max Score and Fitness Level Calculations
 
 ## Oiski.School Namespace Collection
 1. [Oiski.School.Library_h1_2020](https://github.com/ZhakalenDk/Oiski.School.Library_H1_2020)
